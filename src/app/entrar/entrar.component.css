@@ -1,9 +1,29 @@
-#img-bg{
-    background-image: url('https://imgur.com/9X9onDM.jpeg');
+/*#img-bg{
+    background-image: url('https://imgur.com/014sMXx.jpeg');
 
-    min-height: 695px;
+    min-height: 895px;
 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+}*/
+
+#img-bg{
+    background-image: url('https://imgur.com/pq7Puh0.jpeg');
+
+    min-height: 795px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .card{
+    background-color:#ffffff95;
+    padding: 30px;
+    border-radius: 4%;
+    box-shadow: 3px 3px 1px 0px #00000070;
+    
+  }
+
