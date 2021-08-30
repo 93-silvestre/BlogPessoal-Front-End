@@ -9,21 +9,26 @@
 }*/
 
 #img-bg{
-    background-image: url('https://imgur.com/pq7Puh0.jpeg');
+    background-image: url('https://i.imgur.com/Y7faz6w.png');
 
-    min-height: 795px;
+    min-height: 850px;
 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    
+
   }
 
   .card{
+    
     background-color:#ffffff95;
     padding: 30px;
     border-radius: 4%;
     box-shadow: 3px 3px 1px 0px #00000070;
+    
+  }
+
+  .btn{
+    color: #fff;
+    background-color: #6d0fe8;
     
   }
 
