@@ -1,57 +1,58 @@
 <div class="container-fluid">
-    <div class="row bg-secondary d-flex align-items-center">
+  <div class="row bg-secondary d-flex align-items-center">
 
-        <div class="col-md-6 text-white text-left">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-6">
-                    <h1 class="text-white">Seja bem-vinde!</h1>
-                    <h5>Use esse espaço para expor suas ideias e pensamentos.</h5>
-                </div>
-            </div>
-
-            <div class="row d-flex justify-content-center mt-3 mb-5">
-                <div class="col-md-6">
-                    <button type="button" class="btn btn-light mr-3" data-toggle="modal" data-target="#exampleModal">Nova Postagem</button>
-                    <a type="button" class="btn btn-outline-light mr-3" href="#postagens">Ver Postagens</a>
-                </div>
-            </div>
-        </div>
-
+    <div class="col-md-6 text-white text-left">
+      <div class="row d-flex justify-content-center">
         <div class="col-md-6">
-            <img src="https://i.imgur.com/PiWN0y3.png
+          <h1 class="text-white">Seja bem-vinde!</h1>
+          <h5>Use esse espaço para expor suas ideias e pensamentos.</h5>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center mt-3 mb-5">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-light mr-3" data-toggle="modal" data-target="#exampleModal">Nova
+            Postagem</button>
+          <a type="button" class="btn btn-outline-light mr-3" href="#postagens">Ver Postagens</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <img src="https://i.imgur.com/PiWN0y3.png
             " alt="Imagem de Fundo" height="500px">
-        </div>
-
     </div>
 
-    <div class="container" id="postagens">
-        <nav>
-            <div class="nav nav-tabs d-flex justify-content-center my-5" id="myTab" role="tablist">
+  </div>
 
-                <a class="nav-link active text-secondary font-weight-bold" id="todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
-                    aria-controls="todasPostagens" aria-selected="true">Todas as Postagens</a>
+  <div class="container" id="postagens">
+    <nav>
+      <div class="nav nav-tabs d-flex justify-content-center my-5" id="myTab" role="tablist">
 
-                <a class="nav-link text-secondary font-weight-bold" id="minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
-                    aria-controls="minhasPostagens" aria-selected="false">Minhas Postagens</a>
+        <a class="nav-link active text-secondary font-weight-bold" id="todasPostagens-tab" data-toggle="tab"
+          href="#todasPostagens" role="tab" aria-controls="todasPostagens" aria-selected="true">Todas as Postagens</a>
 
-                <a class="nav-link text-secondary font-weight-bold" id="postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab"
-                    aria-controls="postagemTema" aria-selected="false">Postagem por Tema</a>
+        <a class="nav-link text-secondary font-weight-bold" id="minhasPostagens-tab" data-toggle="tab"
+          href="#minhasPostagens" role="tab" aria-controls="minhasPostagens" aria-selected="false">Minhas Postagens</a>
 
-            </div>
-        </nav>
+        <a class="nav-link text-secondary font-weight-bold" id="postagemTema-tab" data-toggle="tab" href="#postagemTema"
+          role="tab" aria-controls="postagemTema" aria-selected="false">Postagem por Tema</a>
 
-        <div class="tab-content my-5" id="myTabContent">
-            <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
-                aria-labelledby="todasPostagens-tab" href="#todasPostagens">Todas postagens</div>
-            <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="minhasPostagens-tab">
-                minhas postagens</div>
-            <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="postagemTema-tab">
-                postagens por tema</div>
-        </div>
+      </div>
+    </nav>
 
+    <div class="tab-content my-5" id="myTabContent">
+      <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="todasPostagens-tab"
+        href="#todasPostagens">Todas postagens</div>
+      <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="minhasPostagens-tab">
+        minhas postagens</div>
+      <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="postagemTema-tab">
+        postagens por tema</div>
     </div>
 
-  
+  </div>
+
+
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -63,34 +64,33 @@
           </button>
         </div>
         <div class="modal-body">
-         
+
           <div class="form-group">
             <label for="titulo">Titulo</label>
-            <input type="text" class="form-control" id="titulo" placeholder="Digite o titulo">
+            <input type="text" class="form-control" id="titulo" placeholder="Digite o titulo"
+              [(ngModel)]='postagem.titulo'>
           </div>
 
           <div class="form-group">
             <label for="texto">Texto</label>
-            <textarea name="texto" class="form-control" id="texto" rows="3"></textarea>
+            <textarea name="texto" class="form-control" id="texto" rows="3"></textarea [(ngModel)]='postagem.texto'>
           </div>
 
           <div class="form-group">
             <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>cadsatre um novo</a> </label>
-            <select name="tema" id="tema" class="form-control">
-              <option value="">Temas</option>
+            <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change='findByIdTema()')>
+              <option *ngFor='let item of listaTemas' value="{{item.id}}">{{item.descricao}}</option>
             </select>
           </div>
 
-
         </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Descartar</button>
-          <button type="button" class="btn btn-success">Publicar</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)='publicar()'>Publicar</button>
         </div>
+        
       </div>
     </div>
   </div>
-
-
-
 </div>
