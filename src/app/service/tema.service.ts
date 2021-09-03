@@ -19,11 +19,22 @@ export class TemaService {
     postTema(temaCadastro: Tema): Observable<Tema>{
       return this.http.post<Tema>('https://blogpessoalnathsilvestre.herokuapp.com/tema', temaCadastro, this.token)
     
-  
+      }
+      
+    gettAllTema(): Observable<Tema[]>{
+      return this.http.get<Tema[]>('https://blogpessoalnathsilvestre.herokuapp.com/tema',  this.token)
     }
 
-    gettAllTema(): Observable<Tema[]>{
-      return this.http.get<Tema[]>('https://blogpessoalnathsilvestre.herokuapp.com/tema', this.token)
+    gettByIdTema(id: number): Observable<Tema>{
+      return this.http.get<Tema>(`https://blogpessoalnathsilvestre.herokuapp.com/tema/${id}`, this.token)
+    }
+
+    putTema(tema: Tema): Observable<Tema>{
+      return this.http.put<Tema>('https://blogpessoalnathsilvestre.herokuapp.com/tema', tema, this.token)
+    }
+
+    deleteTema(id: number){
+      return this.http.delete(`https://blogpessoalnathsilvestre.herokuapp.com/tema/${id}`, this.token)
     }
   
 }

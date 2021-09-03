@@ -6,7 +6,7 @@ import { TemaService } from '../service/tema.service';
 
 @Component({
   selector: 'app-tema',
-  templateUrl: './tema.component.html',
+  templateUrl:'./tema.component.html',
   styleUrls: ['./tema.component.css']
 })
 export class TemaComponent implements OnInit {
