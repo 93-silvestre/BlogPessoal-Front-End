@@ -7,10 +7,8 @@ import { Tema } from '../model/Tema';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TemaService {
-  getAllTema() {
-    throw new Error('Method not implemented.');
-  }
 
   constructor(   
      private http: HttpClient) { }
@@ -24,16 +22,16 @@ export class TemaService {
     
       }
       
-    gettAllTema(): Observable<Tema[]>{
+    getAllTema(): Observable<Tema[]>{
       return this.http.get<Tema[]>('https://blogpessoalnathsilvestre.herokuapp.com/tema',  this.token)
     }
 
-    gettByIdTema(id: number): Observable<Tema>{
+    getByIdTema(id: number): Observable<Tema>{
       return this.http.get<Tema>(`https://blogpessoalnathsilvestre.herokuapp.com/tema/${id}`, this.token)
     }
 
-    putTema(tema: Tema): Observable<Tema>{
-      return this.http.put<Tema>('https://blogpessoalnathsilvestre.herokuapp.com/tema', tema, this.token)
+    putTema(temaCadastro: Tema): Observable<Tema>{
+      return this.http.put<Tema>('https://blogpessoalnathsilvestre.herokuapp.com/tema', temaCadastro, this.token)
     }
 
     deleteTema(id: number){

@@ -28,6 +28,7 @@ import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component'
     TemaComponent,
     TemaEditComponent,
     TemaDeleteComponent,
+    
   
   ],
   imports: [

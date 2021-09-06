@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Tema } from '../model/Tema';
 import { TemaService } from '../service/tema.service';
+
+
 
 @Component({
   selector: 'app-tema',
@@ -29,7 +31,7 @@ export class TemaComponent implements OnInit {
   }
 
   findAllTemas(){
-   this.temaService.gettAllTema().subscribe((resp: Tema[]) => {
+   this.temaService.getAllTema().subscribe((resp: Tema[]) => {
      this.listaTemas = resp
 
   })
