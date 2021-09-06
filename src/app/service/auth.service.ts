@@ -1,5 +1,5 @@
 import { UsuarioLogin} from '../model/UsuarioLogin';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../model/Usuario';
@@ -10,9 +10,11 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class AuthService {
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
+
+  token = {
+    headers: new HttpHeaders().set('Authorization', environment.token),
+  };
 
 
   entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
@@ -26,7 +28,7 @@ export class AuthService {
   }
 
   getUsuarioById(id: number): Observable<Usuario>{
-    return this.http.get<Usuario>(`https://blogpessoalnathsilvestre.herokuapp.com/usuarios/${id}`)
+    return this.http.get<Usuario>(`https://blogpessoalnathsilvestre.herokuapp.com/usuarios/${id}` )
 
   }
 
