@@ -29,6 +29,9 @@ export class InicioComponent implements OnInit {
   usuario: Usuario = new Usuario()
   idUsuario = environment.id
 
+  key = 'data' // para ordenar
+  reverse = true // reverter ordem
+
   constructor(
     private router: Router,
     private postagemService: PostagemService,
